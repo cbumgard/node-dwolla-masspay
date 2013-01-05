@@ -8,28 +8,30 @@ Based on the Dwolla Labs MassPay API which has two endpoints: [Create Job](http:
 
 ## Usage
     
-    var config = {
-      token: process.env.DWOLLA_OAUTH_TOKEN || null, // Required
-      pin: process.env.DWOLLA_PIN || null,           // Required
-      uid: process.env.DWOLLA_UID || null,           // Required
-      monitor_interval_ms: 500, // Optional (default 1000): how often to poll the job details endpoint
-      monitor_timeout_ms: 0     // Optional (default 0): when to timeout, or 0 == never time out
-    }
-    var masspay = require('dwolla-masspay')(config);
-    // NOTE: you must define email, filedata, assumeCosts, test, source, user_job_id in your code
-    masspay.create_job(email, filedata, assumeCosts, test, source, user_job_id, function(err, res) {
-      if (err) { throw err; } 
+```javascript
+var config = {
+  token: process.env.DWOLLA_OAUTH_TOKEN || null, // Required
+  pin: process.env.DWOLLA_PIN || null,           // Required
+  uid: process.env.DWOLLA_UID || null,           // Required
+  monitor_interval_ms: 500, // Optional (default 1000): how often to poll the job details endpoint
+  monitor_timeout_ms: 0     // Optional (default 0): when to timeout, or 0 == never time out
+}
+var masspay = require('dwolla-masspay')(config);
+// NOTE: you must define email, filedata, assumeCosts, test, source, user_job_id in your code
+masspay.create_job(email, filedata, assumeCosts, test, source, user_job_id, function(err, res) {
+  if (err) { throw err; } 
+  else {
+    // You could also call masspay.job_details_by_id() here if you wish, but monitor_status()
+    // calls it until either the job completes or a timeout has been reached:
+    masspay.monitor_status(config.monitor_interval_ms, config.monitor_timeout_ms, job_id, user_job_id, function(err, res) {
+      if (err) { throw err; }
       else {
-        // You could also call masspay.job_details_by_id() here if you wish, but monitor_status()
-        // calls it until either the job completes or a timeout has been reached:
-        masspay.monitor_status(config.monitor_interval_ms, config.monitor_timeout_ms, job_id, user_job_id, function(err, res) {
-          if (err) { throw err; }
-          else {
-            // Job has completed successfully
-          }
-        });
+        // Job has completed successfully
       }
     });
+  }
+});
+```
 
 ### Notes on the config object:
 
@@ -46,4 +48,4 @@ This executes a single integration test that covers all three API functions expo
 
 ## Background
 
-Written originally for my company AskYourUsers.com which recently began allowing users to accept payments via [Dwolla](http://blog.dwolla.com/askyourusers/).
+Written originally for my company [AskYourUsers.com](https://www.askyourusers.com) which [recently](http://blog.dwolla.com/askyourusers/) began allowing users to accept payments via [Dwolla](https://www.dwolla.com/).
