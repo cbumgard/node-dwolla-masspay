@@ -1,0 +1,30 @@
+{
+  "name": "node-dwolla-masspay",
+  "description": "Node.js integration for Dwolla's MassPay API",
+  "author": "Chris Bumgardner <cbumgard@gmail.com>",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "mocha"
+  },
+  "main": "./lib/dwolla-masspay",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbumgard/node-dwolla-masspay"
+  },  
+  "license": "MIT",  
+  "dependencies": {
+    "request": "2.12.x"
+  },
+  "devDependencies": {
+    "mocha": "1.7.x",
+    "should": "1.2.x"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "keywords": [
+    "dwolla",
+    "masspay",
+    "api"
+  ]
+}
