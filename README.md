@@ -49,3 +49,7 @@ This executes a single integration test that covers all three API functions expo
 ## Background
 
 Written originally for my company [AskYourUsers.com](https://www.askyourusers.com) which [recently](http://blog.dwolla.com/askyourusers/) began allowing users to accept payments via [Dwolla](https://www.dwolla.com/).
+
+## License
+
+This module is MIT licensed [here](https://github.com/cbumgard/node-dwolla-masspay/blob/master/LICENSE).
