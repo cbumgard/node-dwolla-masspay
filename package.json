@@ -1,5 +1,5 @@
 {
-  "name": "node-dwolla-masspay",
+  "name": "dwolla-masspay",
   "description": "Easy node.js integration for Dwolla's MassPay API.",
   "author": "Chris Bumgardner <cbumgard@gmail.com>",
   "version": "0.0.1",
