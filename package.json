@@ -2,7 +2,7 @@
   "name": "dwolla-masspay",
   "description": "Easy node.js integration for Dwolla's MassPay API.",
   "author": "Chris Bumgardner <cbumgard@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "test": "mocha"
   },
