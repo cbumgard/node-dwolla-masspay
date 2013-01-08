@@ -6,6 +6,17 @@ Easy node.js integration for Dwolla's MassPay API.
 
 Based on the Dwolla Labs MassPay API which has two endpoints: [Create Job](http://developers.dwolla.com/dev/docs/labs/masspay/create) and [Job Details by ID](http://developers.dwolla.com/dev/docs/labs/masspay/byid). This module provides simple access to the two endpoints above, as well as an additional monitor timer that will poll the [Job Details by ID](http://developers.dwolla.com/dev/docs/labs/masspay/byid) endpoint on a specified interval until the job is complete, or a specified timeout reached.
 
+## Installation
+
+Either just `npm install dwolla-masspay` or if you already have a project with a package.json, add it as a dependency like:
+
+```json
+  "dependencies": {
+    "dwolla-masspay": "0.0.x"
+```
+
+Followed by running a `npm install` in your project root.
+
 ## Usage
 
 Please see [this test](https://github.com/cbumgard/node-dwolla-masspay/blob/master/test/monitor-status.js) for a complete working example.
